@@ -12,7 +12,4 @@ x_train, x_test = label_encode(x_train,x_test)
 
 
 def linear_regression(X, y):
-    linear_regressor = LinearRegression(normalize=False)
-    linear_regressor.fit(X, y)
-    return linear_regressor
     

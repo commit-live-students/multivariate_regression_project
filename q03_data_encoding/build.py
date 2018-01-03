@@ -9,13 +9,6 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 
 def label_encode(X_train,X_test):
     """encodes the non-numeric values to numeric"""
-    le=LabelEncoder()
     
-    for i in range(0,X_train.shape[1]):
-        #i=0
-        if not np.isreal(X_train.iloc[1,i]):
-            X_train.iloc[:,i] = le.fit_transform(X_train.iloc[:,i])
-            X_test.iloc[:,i] = le.transform(X_test.iloc[:,i])
-    return X_train,X_test
 
 

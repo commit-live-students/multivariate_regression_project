@@ -11,9 +11,5 @@ x_train,x_test = label_encode(x_train,x_test)
 
 def visualise_data(data,figname):
     
-    plt.figure()
-    scatter_matrix(data, alpha=0.2, figsize=(50,50), diagonal='kde')
     
-    plt.savefig(figname)
-    return plt
 
