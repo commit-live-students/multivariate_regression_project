@@ -21,4 +21,4 @@ def cross_validation_regressor (model, X,y):
     kfold = KFold(n_splits=3, random_state=7)
     return cross_val_score(estimator=model, X=X, y=y, cv=kfold, scoring=('r2')).mean()
 
-print ( cross_validation_regressor(model,x_train,y_train))
+#print ( cross_validation_regressor(model,x_train,y_train))
