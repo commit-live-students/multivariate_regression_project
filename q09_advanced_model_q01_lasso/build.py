@@ -35,6 +35,6 @@ def lasso(X_train, X_test, y_train, y_test,alpha=0.1):
     mae= mean_absolute_error (y_test,y_pred)
     r2= r2_score(y_test,y_pred)
 
-    index = ['cross_validation','rmse','mae','r2']
-    scores = pd.DataFrame([[val,mae,r2,mse]],columns=index)
+    cols = ['cross_validation','rmse','mae','r2']
+    scores = pd.DataFrame([[val,mae,r2,mse]],columns=cols)
     return model,y_pred,scores
