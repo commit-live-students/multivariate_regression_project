@@ -19,8 +19,8 @@ y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 def linear_model(X_train, X_test, y_train, y_test):
     model.fit(X_train,y_train)
     y_pred = model.predict(X_test)
-    index = ['cross_validation','rmse','mae','r2']
-    scores = pd.DataFrame([[val,mae,mse,r2]],columns=index)
+    cols = ['cross_validation','rmse','mae','r2']
+    scores = pd.DataFrame([[val,mae,mse,r2]],columns=cols)
     return model,y_pred,scores
 
 print linear_model(x_train, x_test, y_train, y_test)
