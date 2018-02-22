@@ -26,6 +26,6 @@ x_train,x_test = label_encode(x_train,x_test)
 # Write your solution here:
 def plot_corr(data, size=11):
     fig, ax = plt.subplots(figsize=(size,size))
-    ax.matshow(data.corr(),)
+    ax.matshow(data.corr())
     plt.set_cmap(cmap='YlOrRd')
     return
