@@ -20,5 +20,8 @@ val = cross_validation_regressor(model,x_train,y_train)
 
 
 def regression_predictor(model, X, y):
-    
-    
+    y_pred = model.predict(X)
+    mse = mean_squared_error(y_pred=y_pred,y_true=y)
+    mae = mean_absolute_error(y_pred=y_pred,y_true=y)
+    r2 = r2_score(y_pred=y_pred,y_true=y)
+    return y_pred, mse, mae, r2
