@@ -5,11 +5,10 @@ from greyatomlib.multivariate_regression_project.q03_data_encoding.build import 
 
 import matplotlib.pyplot as plt
 from pandas.plotting import scatter_matrix
-data = load_data('data/student-mat.csv') 
+data = load_data('data/student-mat.csv')
 x_train, x_test, y_train, y_test =  split_dataset(data)
 x_train,x_test = label_encode(x_train,x_test)
 
 def visualise_data(data,figname):
-    
-    
-
+    scatter_matrix(data, alpha=0.2, figsize=(10, 12), diagonal='kde')
+    return 
