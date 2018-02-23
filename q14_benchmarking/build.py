@@ -22,8 +22,15 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 
-def create_stats(x_train, x_test, y_train, y_test,enc = "labelencoder"):
-    
+def create_stats(X_train, X_test, y_train, y_test,enc = "labelencoder"):
+    a, b,lm_score=linear_model(X_train, X_test, y_train, y_test,'')
+    c, d,lasso_score=lasso(X_train, X_test, y_train, y_test)
+    e, f,ridge_score=ridge(X_train, X_test, y_train, y_test)
+    best_features = feature_selection(X_train,y_train, k=50)
+    a, b,lm_score_bf=linear_model(X_train[best_features], X_test[best_features], y_train, y_test,'')
+    c, d,lasso_score_bf=lasso(X_train[best_features], X_test[best_features], y_train, y_test)
+    e, f,ridge_score_bf=ridge(X_train[best_features], X_test[best_features], y_train, y_test)
 
-
-
+    complete_stats = pd.concat([lm_score,lasso_score,ridge_score,lm_score_bf,lasso_score_bf,ridge_score_bf],ignore_index=True)
+    del complete_stats['rmse']
+    return complete_stats#lm_score,lasso_score,ridge_score,lm_score_bf,lasso_score_bf,ridge_score_bf
