@@ -20,8 +20,10 @@ x_train,x_test = label_encode(x_train,x_test)
 
 np.random.seed(9)
 def percentile_k_features(X,y, k=50):
-    
-
-
-
-
+    sp = SelectPercentile(f_regression,percentile=k)
+    sp.fit_transform(X,y)
+    features = X.columns.values[sp.get_support()]
+    scores = sp.scores_[sp.get_support()]
+    fs_score = list(zip(features,scores))
+    df = pd.DataFrame(fs_score,columns=['Name','Score'])
+    return df.sort_values(['Score','Name'],ascending = [False,True])['Name'].tolist()
