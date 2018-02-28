@@ -1,3 +1,4 @@
+# %load q09_advanced_model_q01_lasso/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -20,4 +21,16 @@ x_train,x_test = label_encode(x_train,x_test)
 
 # Write your solution here
 def lasso(x_train, x_test, y_train, y_test,alpha=0.1):
-    
+    model =Lasso(alpha=alpha)
+    model.fit(x_train,y_train)
+    val = cross_validation_regressor(model,x_train,y_train)
+    y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
+    stats = pd.DataFrame()
+    stats['CV_score'] = val, val
+    stats['MAE'] = mae
+    stats['r2'] = r2
+    stats['MSE'] = np.sqrt(mse)
+    #stats.set_index('Name',inplace=True)
+    return model, y_pred, stats
+
+lasso(x_train, x_test, y_train, y_test,alpha=0.1)
