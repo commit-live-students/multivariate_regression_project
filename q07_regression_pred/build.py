@@ -1,3 +1,4 @@
+# %load q07_regression_pred/build.py
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
@@ -19,6 +20,8 @@ model =linear_regression(x_train,y_train)
 val = cross_validation_regressor(model,x_train,y_train)
 
 
-def regression_predictor(model, X, y):
-    
-    
+def regression_predictor(model, x_train, y_train):
+    y_pred = model.predict(x_test)
+    return y_pred, float(mean_squared_error(y_test, y_pred)), float(mean_absolute_error(y_test,y_pred)), float(r2_score(y_test,y_pred))
+
+regression_predictor(model,x_train,y_train)
