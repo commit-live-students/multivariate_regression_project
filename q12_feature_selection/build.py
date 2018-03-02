@@ -11,11 +11,12 @@ from greyatomlib.multivariate_regression_project.q11_feature_selection_q01_plot_
 
 import pandas as pd
 df = load_data('data/student-mat.csv')
- 
+
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 # plot_corr(pd.concat([x_train,y_train],axis=1))
 
 def feature_selection(X,y,k=50):
-    
+    plot_corr(X)
+    return percentile_k_features(X,y,k)
