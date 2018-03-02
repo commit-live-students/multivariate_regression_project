@@ -20,8 +20,11 @@ x_train,x_test = label_encode(x_train,x_test)
 
 np.random.seed(9)
 def percentile_k_features(X,y, k=50):
-    
+    select = SelectPercentile(f_regression,k)
+    X_new = select.fit_transform(X,y)
 
+    scores = select.scores_
+    selected_index = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:X_new.shape[1]]
+    selected_predictors = [X.columns[i] for i in selected_index]
 
-
-
+    return selected_predictors

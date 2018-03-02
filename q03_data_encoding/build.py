@@ -4,11 +4,16 @@ from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import pandas as pd
 df = load_data('data/student-mat.csv')
- 
+
 x_train, x_test, y_train, y_test =  split_dataset(df)
 
 def label_encode(X_train,X_test):
-    """encodes the non-numeric values to numeric"""
-    
+    le = LabelEncoder()
+    numeric = X_train._get_numeric_data().columns.tolist()
+    all_columns = x_train.columns.tolist()
+    non_numeric = [item for item in all_columns if item not in numeric]
 
-
+    for column in non_numeric:
+        X_train[column] = le.fit_transform(X_train[column])
+        X_test[column] = le.fit_transform(X_test[column])
+    return X_train, X_test    
