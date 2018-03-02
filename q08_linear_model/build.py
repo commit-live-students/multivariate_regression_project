@@ -17,5 +17,8 @@ y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 
 
 def linear_model(x_train, x_test, y_train, y_test):
-    
-    
+    G = linear_regression(x_train, y_train)
+    y_pred, rmse, mae, r2 = regression_predictor(G, x_test, y_test)
+    score = cross_validation_regressor(model, x_train, y_train)
+    stats = pd.DataFrame([(score,mae,rmse,r2)], columns = ['cross_val','mae','rmse','r2'])
+    return G, y_pred, stats
