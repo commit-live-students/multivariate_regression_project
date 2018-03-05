@@ -25,4 +25,4 @@ This assignment will be helpful in measuring accuracy of your model.
 
 | Return | dtype | description |
 | --- | --- | --- | 
-| mean error scores | | mean of neg_mean_squared_errors for different cross validation folds |
+| r2 score | | mean of r2 score for different cross validation folds |
