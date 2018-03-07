@@ -17,5 +17,6 @@ y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 
 
 def linear_model(x_train, x_test, y_train, y_test):
-    
-    
+    temp_list = [val, mae, mse, r2]
+    stat = pd.DataFrame([temp_list])
+    return model, y_pred, stat
