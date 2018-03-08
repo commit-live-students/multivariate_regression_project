@@ -25,14 +25,11 @@ score = cross_validation_regressor(model,x_train,y_train)
 class Test_cross_validation(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(cross_validation_regressor)
-    	self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (2, len(args[0])))
+        args = getargspec(cross_validation_regressor)
+        self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (2, len(args[0])))
 
     def test_result__type(self):
-    	self.assertIsInstance(score, float, "Expected data type for 'return value' is pandas Dataframe you are returning\
+        self.assertIsInstance(score, float, "Expected data type for 'return value' is pandas Dataframe you are returning\
         %s" % (type(x_train)))
-
-	def test_result_value(self):
-		self.assertAlmostEqual(score, 0.782395214893, "Expected value for 'return value' does not match with %s" % (score))
-
-    
+    def test_result_value(self):
+        self.assertAlmostEqual(score, 0.782395214893, "Expected value for 'return value' does not match with %s" % (score))
