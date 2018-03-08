@@ -10,5 +10,7 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 def describe_df(X):
-    
+    df  = X.describe()
+    value = np.array(X.apply(pd.value_counts))
 
+    return df, value
