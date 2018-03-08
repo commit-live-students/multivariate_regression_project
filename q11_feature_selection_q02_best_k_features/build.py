@@ -20,8 +20,18 @@ x_train,x_test = label_encode(x_train,x_test)
 
 np.random.seed(9)
 def percentile_k_features(X,y, k=50):
-    
 
+    lst = []
 
+    fs = SelectPercentile(f_regression, percentile=k)
+    fs.fit_transform(X, y)
+    col_nam =  X.columns.values[fs.get_support()]
+    col_scr = fs.scores_[fs.get_support()]
+    nam_scr = list(zip(col_nam,col_scr))
+    #print nam_scr
 
+    srt_nam_scr = sorted(nam_scr, key=lambda x: x[1], reverse=True)
+    for i in srt_nam_scr:
+        lst.append(i[0])
 
+    return lst
