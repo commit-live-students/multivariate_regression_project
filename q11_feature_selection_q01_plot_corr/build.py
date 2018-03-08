@@ -11,7 +11,7 @@ from greyatomlib.multivariate_regression_project.q02_data_split.build import spl
 from greyatomlib.multivariate_regression_project.q03_data_encoding.build import label_encode
 
 df = load_data('data/student-mat.csv')
- 
+
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
@@ -25,6 +25,14 @@ x_train,x_test = label_encode(x_train,x_test)
 
 # Write your solution here:
 def plot_corr(data, size=11):
-    
 
-
+    figsz, axes = plt.subplots(figsize=(size, size))
+    #print figsz, axes
+    corr= data.corr()
+    plt.set_cmap(cmap='YlOrRd')
+    axes.matshow(corr)
+    plt.xticks(range(len(corr.columns)), corr.columns, rotation=90);
+    plt.yticks(range(len(corr.columns)), corr.columns);
+    #sns.heatmap(corr,xticklabels='auto',yticklabels='auto',cmap='YlOrRd')
+    plt.show()
+    return
