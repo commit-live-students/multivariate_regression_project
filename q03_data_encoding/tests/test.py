@@ -13,18 +13,17 @@ X_train, X_test = label_encode(x_train, x_test)
 class Test_label_encode(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(label_encode)
-    	self.assertEqual(len(args[0]), 2, "Expected arguments %d, Given %d" % (2, len(args[0])))
+        args = getargspec(label_encode)
+        self.assertEqual(len(args[0]), 2, "Expected arguments %d, Given %d" % (2, len(args[0])))
 
     def test_result_X_train_type(self):
-    	self.assertIsInstance(X_train, pd.DataFrame, "Expected data type for 'return value' is pandas Dataframe you are returning\
-        %s" % (type(X_train)))
+        self.assertIsInstance(X_train, pd.DataFrame, "Expected data type for 'return value' is pandas Dataframe you are returning  %s" % (type(X_train)))
 
-	def test_result_X_test_type(self):
-		self.assertIsInstance(X_test, pd.DataFrame, "Expected data type for 'return value' is pandas Dataframe you are returning %s" % (type(X_test)))
+    def test_result_X_test_type(self):
+        self.assertIsInstance(X_test, pd.DataFrame, "Expected data type for 'return value' is pandas Dataframe you are returning %s" % (type(X_test)))
 
     def test_result_X_train_shape(self):
         self.assertEqual(X_train.shape,(316, 32) , "The Expected return shape does not match with the given return shape")
 
     def test_result_X_test_shape(self):
-        self.assertEqual(x_test.shape,(79, 32) , "The Expected return shape does not match with the given return shape")    
+        self.assertEqual(x_test.shape,(79, 32) , "The Expected return shape does not match with the given return shape")
