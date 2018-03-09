@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('agg')
 
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import yticks, xticks, subplots, set_cmap
@@ -11,7 +13,7 @@ from greyatomlib.multivariate_regression_project.q02_data_split.build import spl
 from greyatomlib.multivariate_regression_project.q03_data_encoding.build import label_encode
 
 df = load_data('data/student-mat.csv')
- 
+
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
@@ -24,7 +26,17 @@ x_train,x_test = label_encode(x_train,x_test)
 #visualise_data(pd.concat([x_train,y_train],axis=1),"../images/data_image.png")
 
 # Write your solution here:
+import pandas as pd
 def plot_corr(data, size=11):
-    
+    fig, ax = plt.subplots(figsize=(size, size))
+    corr= data.corr()
+    plt.set_cmap(cmap='YlOrRd')
+    ax.matshow(corr)
+    plt.xticks(range(len(corr.columns)), corr.columns);
+    plt.yticks(range(len(corr.columns)), corr.columns);
+
+    #plt.savefig(figname)
+    return
 
 
+plot_corr(pd.concat([x_train,y_train],axis=1))
