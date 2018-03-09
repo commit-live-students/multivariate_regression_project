@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import regression_predictor
-from inspect import getargspec
+from inspect import getfullargspec
 import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
@@ -28,15 +28,15 @@ y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 class Test_regression_predictor(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(regression_predictor)
-    	self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (2, len(args[0])))
+        args = getfullargspec(regression_predictor)
+        self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (2, len(args[0])))
 
     def test_y_pred_type(self):
-    	self.assertIsInstance(y_pred, np.ndarray, "Expected data type for 'return value' is float you are returning\
+        self.assertIsInstance(y_pred, np.ndarray, "Expected data type for 'return value' is float you are returning\
         %s" % (type(y_pred)))
 
-	def test_mse_type(self):
-		self.assertIsInstance(mse, float, "Expected data type for 'return value' is float you are returning %s" % (type(mse)))
+    def test_mse_type(self):
+        self.assertIsInstance(mse, float, "Expected data type for 'return value' is float you are returning %s" % (type(mse)))
 
     def test_mae_type(self):
         self.assertIsInstance(mae, float, "Expected data type for 'return value' is float you are returning %s" % (type(mae)))
