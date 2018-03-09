@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import percentile_k_features
-from inspect import getargspec
+from inspect import getfullargspec
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 from greyatomlib.multivariate_regression_project.q03_data_encoding.build import label_encode
@@ -22,15 +22,15 @@ top_k = percentile_k_features(x_train, y_train, k=50)
 class Test_percentile_k_features(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(percentile_k_features)
-    	self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (5, len(args[0])))
+        args = getfullargspec(percentile_k_features)
+        self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (5, len(args[0])))
 
     def test_args_default(self):  # Input parameter defaults
-        args = getargspec(percentile_k_features)
+        args = getfullargspec(percentile_k_features)
         self.assertEqual(args[3], (50,), "Expected default values do not match original values")
 
     def test_top_k_type(self):
-    	self.assertIsInstance(top_k, list, "Expected data type for 'return value' is list you are returning\
+        self.assertIsInstance(top_k, list, "Expected data type for 'return value' is list you are returning\
         %s" % (type(top_k)))
 
     def test_top_k_length(self):
