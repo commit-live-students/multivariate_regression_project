@@ -55,3 +55,5 @@ class Test_regression_predictor(TestCase):
 
     def test_r2_value(self):
         self.assertAlmostEqual(r2, 0.86866665451677927, 2, "The Expected return value does not match with the given return value")    
+
+        
