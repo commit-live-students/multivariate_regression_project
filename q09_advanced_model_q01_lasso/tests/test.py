@@ -39,8 +39,8 @@ class Test_lasso(TestCase):
     	self.assertIsInstance(model, sklearn.linear_model.coordinate_descent.Lasso, "Expected data type for 'return value' is float you are returning\
         %s" % (type(lasso)))
 
-	def test_y_pred_type(self):
-		self.assertIsInstance(y_pred, np.ndarray, 
+    def test_y_pred_type(self):
+        self.assertIsInstance(y_pred, np.ndarray, 
             "Expected data type for 'return value' is float you are returning %s" % (type(y_pred)))
 
     def test_stats_type(self):
