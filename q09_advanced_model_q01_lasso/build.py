@@ -20,4 +20,9 @@ x_train,x_test = label_encode(x_train,x_test)
 
 # Write your solution here
 def lasso(x_train, x_test, y_train, y_test,alpha=0.1):
-    
+    lasso = Lasso(alpha=alpha, normalize=False, random_state=9)
+    lasso.fit(x_train, y_train)
+    c_val = cross_validation_regressor(lasso, x_train, y_train)
+    y_pred, mse, mae, r2 = regression_predictor(lasso, x_test, y_test)
+    stats = pd.DataFrame({'c_val': c_val, 'rmse': np.sqrt(mse), 'mae': mae, 'r2': r2}, index=[0])
+    return lasso, y_pred, stats

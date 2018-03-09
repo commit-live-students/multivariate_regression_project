@@ -17,5 +17,16 @@ y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 
 
 def linear_model(x_train, x_test, y_train, y_test):
+    G = linear_regression(x_train, y_train)
+
+    c_val = cross_validation_regressor(G, x_train, y_train)
+
+    y_pred, mse, mae, r2 = regression_predictor(G, x_test, y_test)
+
+    my_dict = {'c_val': c_val, 'mse': mse, 'mae': mae, 'r2': r2}
+
+    stats = pd.DataFrame(my_dict, index=[0])
+
+    return G, y_pred, stats
     
     

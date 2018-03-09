@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import linear_regression
-from inspect import getargspec
+from inspect import getfullargspec
 import pandas as pd
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -18,7 +18,7 @@ regressor = linear_regression(x_train, y_train)
 class Test_linear_regression(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(linear_regression)
+    	args = getfullargspec(linear_regression)
     	self.assertEqual(len(args[0]), 2, "Expected arguments %d, Given %d" % (2, len(args[0])))
 
     def test_result_type(self):

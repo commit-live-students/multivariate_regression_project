@@ -18,4 +18,6 @@ x_train,x_test = label_encode(x_train,x_test)
 # plot_corr(pd.concat([x_train,y_train],axis=1))
 
 def feature_selection(X,y,k=50):
+    feat = percentile_k_features(X, y, k)
+    return feat
     

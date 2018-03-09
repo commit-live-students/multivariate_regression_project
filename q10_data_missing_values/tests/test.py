@@ -26,9 +26,9 @@ class Test_describe_df(TestCase):
         %s" % (type(describe)))
 
     def test_value_counts_type(self):
-        self.assertIsInstance(value_counts, np.ndarray,
+        self.assertIsInstance(value_counts, pd.DataFrame,
                                   "Expected data type for 'return value' is float you are returning %s" % (
-                                      type(y_pred)))
+                                      type(value_counts)))
 
     def test_describe_shape(self):
         self.assertEqual(describe.shape, (8, 32),

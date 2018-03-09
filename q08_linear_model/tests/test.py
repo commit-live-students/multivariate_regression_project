@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import linear_model
-from inspect import getargspec
+from inspect import getfullargspec
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import pandas as pd
 import numpy as np
@@ -25,14 +25,14 @@ G,y_pred,stats = linear_model(x_train, x_test, y_train, y_test)
 class Test_linear_model(TestCase):
 
     def test_args(self):    # Input parameters tests
-        args = getargspec(linear_model)
+        args = getfullargspec(linear_model)
         self.assertEqual(len(args[0]), 4, "Expected arguments %d, Given %d" % (4, len(args[0])))
 
     def test_G_type(self):
         self.assertIsInstance(G, sklearn.linear_model.LinearRegression, "Expected data type for 'return value' is float you are returning\
         %s" % (type(G)))
     def test_y_pred_type(self):
-        self.assertIsInstance(mse, np.ndarray,
+        self.assertIsInstance(mse, np.float,
             "Expected data type for 'return value' is float you are returning %s" % (type(y_pred)))
 
     def test_stats_type(self):

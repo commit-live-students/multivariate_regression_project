@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import visualise_data
-from inspect import getargspec
+from inspect import getfullargspec
 import pandas as pd
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -17,6 +17,6 @@ X_train, X_test = label_encode(x_train, x_test)
 class TestLoad_data(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(visualise_data)
+    	args = getfullargspec(visualise_data)
     	self.assertEqual(len(args[0]), 2, "Expected arguments %d, Given %d" % (2, len(args[0])))
 

@@ -23,22 +23,16 @@ df = load_data('data/student-mat.csv')
 
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
-complete_stats = create_stats(x_train, x_test, y_train, y_test, enc = "labelencoder")
+complete_stats = create_stats(x_train, x_test, y_train, y_test)
 
 
 class Test_create_stats(TestCase):
 
     def test_args(self):    # Input parameters tests
         args = getfullargspec(create_stats)
-        self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
+        self.assertEqual(len(args[0]), 4, "Expected arguments %d, Given %d" % (4, len(args[0])))
 
-    def test_args_default(self):  # Input parameters defaults
-        args = getfullargspec(create_stats)
-        self.assertEqual(args[3], ("labelencoder",), 
-            "Expected default values do not match given default values")
-
-    
 
     def test_complete_stats_value_(self):
-        self.assertEqual(complete_stats.shape[0]*complete_stats.shape[1], 24,
+        self.assertEqual(complete_stats.shape[0]*complete_stats.shape[1], 16,
          "The Expected return value does not match with the given return value")    

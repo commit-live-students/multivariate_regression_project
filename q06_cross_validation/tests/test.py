@@ -32,4 +32,4 @@ class Test_cross_validation(TestCase):
         self.assertIsInstance(score, float, "Expected data type for 'return value' is pandas Dataframe you are returning\
         %s" % (type(x_train)))
     def test_result_value(self):
-        self.assertAlmostEqual(score, 0.782395214893, "Expected value for 'return value' does not match with %s" % (score))
+        np.testing.assert_almost_equal(score, 0.782395214893, decimal=3, err_msg="Expected value for 'return value' does not match ")

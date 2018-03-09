@@ -2,7 +2,7 @@ import sys, os
 # sys.path.append(os.path.join(os.path.dirname(os.curdir)))
 from unittest import TestCase
 from ..build import split_dataset
-from inspect import getargspec
+from inspect import getfullargspec
 import pandas
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
@@ -13,7 +13,7 @@ x_train, x_test, y_train, y_test = split_dataset(df)
 class TestRead_split_dataset(TestCase):
 
 	def test_split_dataset_args(self):
-		arg = getargspec(split_dataset).args
+		arg = getfullargspec(split_dataset).args
 		self.assertEqual(len(arg),1 ,"Expected argument(s) %d, Given %d" % (1,len(arg)))
 
 	def test_x_train_return_instance_X(self):
