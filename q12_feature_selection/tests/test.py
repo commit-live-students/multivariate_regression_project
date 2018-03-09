@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import feature_selection
-from inspect import getargspec
+from inspect import getfullargspec
 import matplotlib.pyplot as plt
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -24,11 +24,11 @@ features = feature_selection(x_train, y_train, k=50)
 class Test_percentile_k_features(TestCase):
 
     def test_args(self):    # Input parameters tests
-        args = getargspec(feature_selection)
+        args = getfullargspec(feature_selection)
         self.assertEqual(len(args[0]), 3, "Expected arguments %d, Given %d" % (5, len(args[0])))
 
     def test_args_default(self):  # Input parameter defaults
-        args = getargspec(feature_selection)
+        args = getfullargspec(feature_selection)
         self.assertEqual(args[3], (50,), "Expected default values do not match original values")
 
     def test_top_k_type(self):
