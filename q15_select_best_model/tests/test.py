@@ -1,6 +1,6 @@
 from unittest import TestCase
 from build import complete_build
-from inspect import getargspec
+from inspect import getfullargspec
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -27,11 +27,11 @@ stats = complete_build(x_train, x_test, y_train, y_test)
 class Test_complete_build(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(complete_build)
-    	self.assertEqual(len(args[0]), 4, "Expected arguments %d, Given %d" % (5, len(args[0])))
+        args = getfullargspec(complete_build)
+        self.assertEqual(len(args[0]), 4, "Expected arguments %d, Given %d" % (5, len(args[0])))
 
     def test_stats_type(self):
-    	self.assertIsInstance(stats, pd.DataFrame, "Expected data type for 'return value' is dataframe you are returning\
+        self.assertIsInstance(stats, pd.DataFrame, "Expected data type for 'return value' is dataframe you are returning\
         %s" % (type(stats)))
 
     def test_stats_columns(self):
