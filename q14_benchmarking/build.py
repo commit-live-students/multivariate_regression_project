@@ -45,6 +45,7 @@ def create_stats(x_train, x_test, y_train, y_test,enc = "labelencoder"):
 
     #Rmse and mse for certain models are NaN. need to fill with zeros.
     complete_stats[['rmse','mse']] =complete_stats[['rmse','mse']].fillna(0)
+
     complete_stats.mse += complete_stats.rmse
     complete_stats = complete_stats.drop(['rmse'],axis=1)
 
