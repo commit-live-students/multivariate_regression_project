@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import create_stats
-from inspect import getargspec
+from inspect import getfullargspec
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -29,15 +29,15 @@ complete_stats = create_stats(x_train, x_test, y_train, y_test, enc = "labelenco
 class Test_create_stats(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(create_stats)
-    	self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
+        args = getfullargspec(create_stats)
+        self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
 
     def test_args_default(self):  # Input parameters defaults
-        args = getargspec(create_stats)
+        args = getfullargspec(create_stats)
         self.assertEqual(args[3], ("labelencoder",), 
             "Expected default values do not match given default values")
 
-	
+    
 
     def test_complete_stats_value_(self):
         self.assertEqual(complete_stats.shape[0]*complete_stats.shape[1], 24,
