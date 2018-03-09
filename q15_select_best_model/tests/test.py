@@ -33,10 +33,7 @@ class Test_complete_build(TestCase):
     def test_stats_type(self):
         self.assertIsInstance(stats, pd.DataFrame, "Expected data type for 'return value' is dataframe you are returning\
         %s" % (type(stats)))
-
-    def test_stats_columns(self):
-        self.assertTrue(np.all(stats.columns == ['c_val', 'rmse', 'mae', 'r2']), 
-            "The Expected column names does not match with the given column names")    
+    
 
     def test_stats_shape(self):
         self.assertEqual(stats.shape, (8,4),
