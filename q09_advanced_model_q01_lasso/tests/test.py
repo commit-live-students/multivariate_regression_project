@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import lasso
-from inspect import getargspec
+from inspect import getfullargspec
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
@@ -28,19 +28,19 @@ model,y_pred,stats = lasso(x_train, x_test, y_train, y_test, alpha=0.1)
 class Test_lasso(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(lasso)
-    	self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
+        args = getfullargspec(lasso)
+        self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
 
     def test_args_default(self):  # Input parameters defaults
-    	args = getargspec(lasso)
+        args = getfullargspec(lasso)
         self.assertEqual(args[3], (0.1,), "Expected default values do not match given default values")
 
     def test_lasso_type(self):
-    	self.assertIsInstance(model, sklearn.linear_model.coordinate_descent.Lasso, "Expected data type for 'return value' is float you are returning\
+        self.assertIsInstance(model, sklearn.linear_model.coordinate_descent.Lasso, "Expected data type for 'return value' is float you are returning\
         %s" % (type(lasso)))
 
     def test_y_pred_type(self):
-        self.assertIsInstance(y_pred, np.ndarray, 
+        self.assertIsInstance(y_pred, np.ndarray,
             "Expected data type for 'return value' is float you are returning %s" % (type(y_pred)))
 
     def test_stats_type(self):
