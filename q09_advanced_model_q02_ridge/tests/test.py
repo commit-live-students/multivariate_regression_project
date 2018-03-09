@@ -1,6 +1,6 @@
 from unittest import TestCase
 from ..build import ridge
-from inspect import getargspec
+from inspect import getfullargspec
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
@@ -28,19 +28,19 @@ model,y_pred,stats = ridge(x_train, x_test, y_train, y_test, alpha=0.1)
 class Test_ridge(TestCase):
 
     def test_args(self):    # Input parameters tests
-    	args = getargspec(ridge)
-    	self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
+        args = getfullargspec(ridge)
+        self.assertEqual(len(args[0]), 5, "Expected arguments %d, Given %d" % (5, len(args[0])))
 
     def test_args_default(self):  # Input parameters defaults
-        args = getargspec(ridge)
+        args = getfullargspec(ridge)
         self.assertEqual(args[3], (0.1,), "Expected default values do not match given default values")
 
     def test_ridge_type(self):
-    	self.assertIsInstance(model, sklearn.linear_model.ridge.Ridge, "Expected data type for 'return value' is float you are returning\
+        self.assertIsInstance(model, sklearn.linear_model.ridge.Ridge, "Expected data type for 'return value' is float you are returning\
         %s" % (type(ridge)))
 
-	def test_y_pred_type(self):
-		self.assertIsInstance(y_pred, np.ndarray, 
+    def test_y_pred_type(self):
+        self.assertIsInstance(y_pred, np.ndarray, 
             "Expected data type for 'return value' is float you are returning %s" % (type(y_pred)))
 
     def test_stats_type(self):
