@@ -24,15 +24,3 @@ x_train,x_test = label_encode(x_train,x_test)
 #visualise_data(pd.concat([x_train,y_train],axis=1),"../images/data_image.png")
 
 # Write your solution here:
-def plot_corr(data, size=11):
-    corr = data.corr()
-    fig, ax = subplots(figsize=(size, size))
-    set_cmap("YlOrRd")
-    ax.matshow(corr)
-    xticks(range(len(corr.columns)), corr.columns, rotation=90)
-    print(len(corr.columns))
-    yticks(range(len(corr.columns)), corr.columns)
-    plt.show()
-    
-
-
