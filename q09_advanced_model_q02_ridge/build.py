@@ -18,7 +18,7 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 
 x_train,x_test = label_encode(x_train,x_test)
 
-def ridge(x_train, x_test, y_train, y_test,alpha=0.1):
+# Write your code below
    
 
     
