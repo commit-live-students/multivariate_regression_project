@@ -11,5 +11,5 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train, x_test = label_encode(x_train,x_test)
 
 
-def linear_regression(X, y):
+# Write your code below
     
