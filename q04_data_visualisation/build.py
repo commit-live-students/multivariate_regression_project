@@ -9,7 +9,7 @@ data = load_data('data/student-mat.csv')
 x_train, x_test, y_train, y_test =  split_dataset(data)
 x_train,x_test = label_encode(x_train,x_test)
 
-def visualise_data(data,figname):
+# Write your code below
     
     
     
