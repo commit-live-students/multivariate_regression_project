@@ -7,8 +7,7 @@ df = load_data('data/student-mat.csv')
  
 x_train, x_test, y_train, y_test =  split_dataset(df)
 
-def label_encode(X_train,X_test):
-    """encodes the non-numeric values to numeric"""
+# Write your code below
     
     
 
