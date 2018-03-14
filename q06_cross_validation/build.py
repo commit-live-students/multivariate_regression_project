@@ -17,5 +17,5 @@ x_train,x_test = label_encode(x_train,x_test)
 
 model =linear_regression(x_train,y_train)
 
-def cross_validation_regressor(model,X,y):
+# Write your code below
     
