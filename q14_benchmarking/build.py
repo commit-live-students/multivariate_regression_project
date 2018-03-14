@@ -25,34 +25,6 @@ x_train, x_test, y_train, y_test = split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 
-def create_stats(x_train, x_test, y_train, y_test):
-    # lin_model, y_pred_lin, stats_lin = linear_model(x_train, x_test, y_train, y_test)
-    # plot_residuals(y_test,y_pred,"images/linear baseline "+enc)
-    lasso_model, y_pred_lasso, stats_lasso = lasso(x_train, x_test, y_train, y_test, alpha=0.1)
-    # plot_residuals(y_test,y_pred,"images/lasso baseline "+enc)
-
-    ridge_model, y_pred_ridge, stats_ridge = ridge(x_train, x_test, y_train, y_test, alpha=0.1)
-    # plot_residuals(y_test,y_pred,"images/ridge baseline "+enc)
-
-    feature_list = feature_selection(x_train, y_train, 50)
-
-    x_train = x_train[feature_list]
-    x_test = x_test[feature_list]
-
-    # lin_model_new, y_pred_lin_new, stats_lin_ft_new = linear_model(x_train, x_test, y_train, y_test)
-    # plot_residuals(y_test,y_pred,"images/linear ft "+enc)
-
-    lasso_model_new, y_pred_lasso_new, stats_lasso_ft_new = lasso(x_train, x_test, y_train, y_test, alpha=0.1)
-    # plot_residuals(y_test,y_pred,"images/lasso ft "+enc)
-
-    ridge_model_new, y_pred_ridge_new, stats_ridge_ft_new = ridge(x_train, x_test, y_train, y_test, alpha=0.1)
-    # plot_residuals(y_test,y_pred,"images/ridge ft "+enc)
-
-    complete_stats = pd.concat([stats_lasso, stats_lasso_ft_new, stats_ridge, stats_ridge_ft_new])
-    return complete_stats
-
-a = create_stats(x_train, x_test, y_train, y_test)
-print(a.shape)
-
+# Write your code below
 
 
