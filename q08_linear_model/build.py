@@ -15,7 +15,6 @@ model =linear_regression(x_train,y_train)
 val = cross_validation_regressor(model,x_train,y_train)
 y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 
-
-def linear_model(x_train, x_test, y_train, y_test):
+# Write your code below
     
     
