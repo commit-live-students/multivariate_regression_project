@@ -10,12 +10,13 @@ from sklearn.model_selection import KFold
 import numpy as np
 
 df = load_data('data/student-mat.csv')
- 
+
 x_train, x_test, y_train, y_test =  split_dataset(df)
 
 x_train,x_test = label_encode(x_train,x_test)
 
 model =linear_regression(x_train,y_train)
 
-# Write your code below
+def cross_validation():
+
     
