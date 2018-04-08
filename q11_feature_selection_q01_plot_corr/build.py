@@ -1,3 +1,4 @@
+# %load q11_feature_selection_q01_plot_corr/build.py
 
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import yticks, xticks, subplots, set_cmap
@@ -21,6 +22,13 @@ x_train,x_test = label_encode(x_train,x_test)
 
 #Remember to concatenate training features and labels if you want to check that scatterplots which I would prefer.You are free to explore labels to labels, features to features ,etc scatterplots as you want by passing arguments
 #============================================================================
-#visualise_data(pd.concat([x_train,y_train],axis=1),"../images/data_image.png")
+#visualise_data(pd.concat([x_train,y_train],axis=1),'../images/data_image.png')
 
 # Write your solution here:
+def plot_corr(data, size=11):
+    import seaborn as sns
+    fig, ax = subplots(figsize=(10, 8))
+    sns.heatmap(data.corr(), cmap = 'YlOrRd')
+    plt.show()
+
+
