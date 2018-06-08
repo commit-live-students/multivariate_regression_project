@@ -10,4 +10,12 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 # Write your code below
-    
+def describe_df(df):
+    describe = df.describe()
+    valuec = describe.copy(deep=True)
+    temp = valuec.append(valuec)
+    temp1 = temp.append(valuec)
+    valuec = valuec.append(temp1)
+    return describe, valuec
+
+#describe_df(x_train)
