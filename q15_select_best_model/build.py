@@ -21,3 +21,8 @@ x_train,x_test = label_encode(x_train,x_test)
 
 
 # Write your code below
+def complete_build(x_train, x_test, y_train, y_test):
+    stats = pd.concat([create_stats(x_train,x_test,y_train,y_test),create_stats(x_train, x_test, y_train, y_test)],axis=0)
+    return stats
+
+#complete_build(x_train, x_test, y_train, y_test)
