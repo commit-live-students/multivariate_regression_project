@@ -10,14 +10,13 @@ your function signature will look like this and you will perform following opera
 3. Get its predictions on entire set and record them in res creating a model predicted feature set
 4. store all statistical error metrics in stats dataframe
 #### Parameters:
-|Parametrt| dtype| argument type| default value| description|
+|Parameter| dtype| argument type| default value| description|
 | --- | --- | --- | --- | --- |
 | x_train | DataFrame | compulsory |  | Independent variables training |
 | x_test| DataFrame | compulsory |  | Independent variables testing|
 | y_train | DataFrame | compulsory |  | training target|
 | y_test| DataFrame | compulsory |  | testing target|
-| name|  | compulsory |  | name for stats|
-| alpha|  |  |  | |
+| alpha|  Hyper parameter| compulsory | 0.1  |Parameter of Ridge model |
 #### Returns:
 
 | Return | dtype | description |
