@@ -65,16 +65,25 @@ Predict student performance in secondary education (high school).
 
 ### General Notes to approach problems are:
 -How to approach a ML problem
+    
     1.import data
+    
     2.missing data
         a.remove the missing lines - dangerous
         b.imputation - take mean of column - sklearn.preprocessing.Imputer
+    
     3. convert categorical data	
+    
     4.splitting datasets - 
+    
     5.Feature Scaling
+        
         a. Standardisation - (x-mean(x))/std_dev(x) 
+        
         b.Normalisation		 - (x-min(x))/(max(x)-min(x))
+    
     6.Apply classifier and test on split
+    
     7.Draw conclusions by plottig if required	
 
 Seems like you are all fired up to put a test to your knowledge.
