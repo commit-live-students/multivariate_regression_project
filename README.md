@@ -69,7 +69,6 @@ Predict student performance in secondary education (high school).
     2.missing data
         a.remove the missing lines - dangerous
         b.imputation - take mean of column - sklearn.preprocessing.Imputer
-
     3. convert categorical data	
     4.splitting datasets - 
     5.Feature Scaling
