@@ -19,4 +19,10 @@ model =linear_regression(x_train,y_train)
 val = cross_validation_regressor(model,x_train,y_train)
 
 
-# Write your code below    
+# Write your code below
+def regression_predictor(model,X,y):
+    y_pred = model.predict(X)
+    mse = mean_squared_error(y,y_pred)
+    mae = mean_absolute_error(y,y_pred)
+    r2 = r2_score(y,y_pred)
+    return y_pred,mse,mae,r2    

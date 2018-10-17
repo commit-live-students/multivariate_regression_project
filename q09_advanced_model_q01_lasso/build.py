@@ -19,5 +19,15 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 # Write your solution here
+def lasso(x_train,x_test,y_train,y_test,alpha=0.1):
+    model = Lasso(alpha=alpha)
+    model.fit(x_train,y_train)
+    val = cross_validation_regressor(model,x_train,y_train)
+    y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
+    rmse = (mse**0.5)
+    d = {'0':val,'1':mae,'2':r2,'3':rmse}
+    stats = pd.DataFrame(d,index=d.keys())
+    stats.reset_index(drop=True,inplace=True)
+    return model, y_pred, stats
 
-    
+#print(lasso(x_train,x_test,y_train,y_test)[2].values[0][3])

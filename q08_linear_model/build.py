@@ -16,5 +16,14 @@ val = cross_validation_regressor(model,x_train,y_train)
 y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 
 # Write your code below
-    
-    
+def linear_model(x_train,x_test,y_train,y_test):
+    model =linear_regression(x_train,y_train)
+    val = cross_validation_regressor(model,x_train,y_train)
+    y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
+    rmse = (mse)
+    d = {'0':val,'1':mae,'2':rmse,'3':r2}
+    stats = pd.DataFrame(d,index=d.keys())
+    stats.reset_index(drop=True,inplace=True)
+    return model, y_pred, stats
+
+#print(linear_model(x_train,x_test,y_train,y_test)[2].values[0][0])
