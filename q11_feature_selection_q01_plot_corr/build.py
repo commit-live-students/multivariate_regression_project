@@ -1,9 +1,9 @@
+# %load q11_feature_selection_q01_plot_corr/build.py
 
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import yticks, xticks, subplots, set_cmap
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
-
-
+import seaborn as sns
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
 
@@ -21,6 +21,12 @@ x_train,x_test = label_encode(x_train,x_test)
 
 #Remember to concatenate training features and labels if you want to check that scatterplots which I would prefer.You are free to explore labels to labels, features to features ,etc scatterplots as you want by passing arguments
 #============================================================================
-#visualise_data(pd.concat([x_train,y_train],axis=1),"../images/data_image.png")
+#visualise_data(pd.concat([x_train,y_train],axis=1),'../images/data_image.png')
 
 # Write your solution here:
+def plot_corr(df,size=11):
+    plt.figure(figsize=(size,8))
+    sns.heatmap(df.corr(), cmap='YlOrRd')
+    
+#plot_corr(df,size=11)
+
