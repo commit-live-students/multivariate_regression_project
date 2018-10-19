@@ -6,7 +6,7 @@ from greyatomlib.multivariate_regression_project.q05_linear_regression_model.bui
 
 from greyatomlib.multivariate_regression_project.q03_data_encoding.build import label_encode
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import cross_val_regressor
+from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 import numpy as np
 
