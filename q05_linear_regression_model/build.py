@@ -1,3 +1,4 @@
+# %load q05_linear_regression_model/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -11,5 +12,13 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train, x_test = label_encode(x_train,x_test)
 
 
-# Write your code below
-    
+def linear_regression(x_train,y_train):
+    linreg = LinearRegression()
+    model1 = linreg.fit(x_train,y_train)
+    return model1
+
+
+c=linear_regression(x_train,y_train)
+c
+
+

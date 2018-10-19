@@ -1,11 +1,12 @@
+# %load q06_cross_validation/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
 from greyatomlib.multivariate_regression_project.q05_linear_regression_model.build import linear_regression
 
 from greyatomlib.multivariate_regression_project.q03_data_encoding.build import label_encode
-
-from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import cross_val_regressor
 from sklearn.model_selection import KFold
 import numpy as np
 
@@ -16,6 +17,13 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 model =linear_regression(x_train,y_train)
+linreg = LinearRegression()
+def cross_validation(model,x_test,y_train):
+    score = cross_val_score(linreg,x_train,y_train)
+    return score.mean()
 
-# Write your code below
-    
+c=cross_validation(model,x_test,y_train)
+c
+
+
+

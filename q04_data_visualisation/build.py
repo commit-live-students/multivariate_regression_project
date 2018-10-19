@@ -13,7 +13,7 @@ x_train,x_test = label_encode(x_train,x_test)
 
 def visualise_data(data,figname = 'data/student-mat.csv'):
     train = pd.concat([x_train,y_train],axis=1)
-    return scatter_matrix(train)
+    plt.scatter
     
     
 
