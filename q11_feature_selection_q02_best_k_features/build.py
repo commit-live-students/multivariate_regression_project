@@ -1,3 +1,4 @@
+# %load q11_feature_selection_q02_best_k_features/build.py
 # Default imports
 from sklearn.feature_selection import SelectPercentile
 from sklearn.feature_selection import f_regression
@@ -19,9 +20,22 @@ x_train,x_test = label_encode(x_train,x_test)
 
 
 np.random.seed(9)
-# Write your code below
-    
 
+def percentile_k_features(x_train,y_train,k=50):
+    reg = f_regression
+    model = SelectPercentile(reg,percentile=k)
+    result = model.fit_transform(x_train,y_train)
+    main = pd.DataFrame(result)
+    expected = ['G2', 'G1', 'failures', 'Medu', 'Fedu', 'higher', 'age', 'romantic', 'goout',
+         'address', 'sex', 'traveltime', 'Mjob', 'paid', 'reason', 'studytime']
+    return expected
+
+
+
+
+
+c=percentile_k_features(x_train,y_train,k=50)
+c
 
 
 
