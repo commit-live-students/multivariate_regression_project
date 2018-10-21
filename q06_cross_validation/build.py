@@ -18,11 +18,11 @@ x_train,x_test = label_encode(x_train,x_test)
 
 model =linear_regression(x_train,y_train)
 linreg = LinearRegression()
-def cross_validation(model,x_test,y_train):
+def cross_validation_regressor(model,x_test,y_train):
     score = cross_val_score(linreg,x_train,y_train)
     return score.mean()
 
-c=cross_validation(model,x_test,y_train)
+c=cross_validation_regressor(model,x_test,y_train)
 c
 
 
