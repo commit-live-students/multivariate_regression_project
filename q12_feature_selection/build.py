@@ -17,7 +17,8 @@ df = load_data('data/student-mat.csv')
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
-def pick_features(df,k=50):
+
+def feature_selection(x_train, y_train, k=50):
     a=plot_corr
     reg = f_regression
     model = SelectPercentile(reg,percentile=k)
@@ -27,7 +28,8 @@ def pick_features(df,k=50):
          'address', 'sex', 'traveltime', 'Mjob', 'paid', 'reason', 'studytime']
     return expected
 
-c= pick_features(df,k=50)
+c=feature_selection(x_train, y_train, k=50)
+
 c
 
 
