@@ -1,3 +1,4 @@
+# %load q14_benchmarking/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -25,6 +26,16 @@ x_train, x_test, y_train, y_test = split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
 
 
-# Write your code below
+def create_stats(x_train,x_test,y_train,y_test):
+    lasso_stats = lasso(x_train,x_test,y_train,y_test,alpha=0.1)[2]
+    lasso_f_ft = feature_selection(x_train,y_train,k=50)
+    ridge_f_ft = feature_selection(x_train,y_train,k=50)
+    lasso_stats_ft = lasso(x_train[lasso_f_ft],x_test[lasso_f_ft],y_train,y_test,alpha=0.1)[2]
+    ridge_stats_ft = ridge(x_train[ridge_f_ft],x_test[ridge_f_ft],y_train,y_test,alpha=0.1)[2]
+    ridge_stats = ridge(x_train,x_test,y_train,y_test,alpha=0.1)[2]
+    complete_stats = pd.concat([lasso_stats,lasso_stats_ft,ridge_stats,ridge_stats_ft],axis=1)
+    return complete_stats
+create_stats(x_train,x_test,y_train,y_test)
+
 
 
