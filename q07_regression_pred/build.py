@@ -1,6 +1,7 @@
+# %load q07_regression_pred/build.py
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-
+from sklearn.linear_model import LinearRegression
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -19,4 +20,14 @@ model =linear_regression(x_train,y_train)
 val = cross_validation_regressor(model,x_train,y_train)
 
 
-# Write your code below    
+def regression_predictor(model, X, y):
+    model.fit(x_train,y_train)
+    y_pred = model.predict(X)
+    mse = mean_squared_error(y, y_pred)
+    mae = mean_absolute_error(y, y_pred)
+    r2 = r2_score(y, y_pred)
+    return y_pred, mse, mae, r2
+
+
+
+
