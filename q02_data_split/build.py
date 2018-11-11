@@ -10,7 +10,7 @@ def split_data(df1):
     y = df1.iloc[:,-1]
     X_train, X_test, y_train, y_test = train_test_split(X,y, train_size=0.7, test_size=0.3)
     return X_train, X_test, y_train, y_test
-split_data(df)
+
 
 
 
