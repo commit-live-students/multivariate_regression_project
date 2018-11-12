@@ -12,9 +12,10 @@ from greyatomlib.multivariate_regression_project.q07_regression_pred.build impor
 df = load_data('data/student-mat.csv')
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
-model =linear_regression(x_train,y_train)
+model = linear_regression(x_train,y_train)
 val = cross_validation_regressor(model,x_train,y_train)
 y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
+
 def linear_model(x_train, x_test, y_train, y_test):
     G = model.fit(x_train, y_train)
     y_pred = model.predict(x_test)
