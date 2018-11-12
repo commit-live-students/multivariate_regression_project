@@ -6,7 +6,9 @@ from greyatomlib.multivariate_regression_project.q02_data_split.build import spl
 from greyatomlib.multivariate_regression_project.q03_data_encoding.build import label_encode
 
 from greyatomlib.multivariate_regression_project.q07_regression_pred.build import regression_predictor
-from sklearn.linear_model import Lasso, LinearRegression
+from greyatomlib.multivariate_regression_project.q09_advanced_model_q01_lasso.build import lasso
+
+from sklearn.linear_model import Lasso
 from sklearn import linear_model
 import numpy as np
 import pandas as pd
