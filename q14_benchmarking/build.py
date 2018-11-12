@@ -1,3 +1,4 @@
+# %load q14_benchmarking/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -18,13 +19,29 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 np.random.seed(7)
-
+from sklearn.preprocessing import LabelEncoder
 df = load_data('data/student-mat.csv')
-
+from sklearn.linear_model import Lasso,Ridge
 x_train, x_test, y_train, y_test = split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
+x_train, x_test, y_train, y_test =  split_dataset(df)
+le = LabelEncoder()
+x_train = pd.get_dummies(x_train)
+x_test = pd.get_dummies(x_test)
+def create_stats(x_train, x_test, y_train, y_test):
+    lass = Lasso(random_state=7,alpha=0.1)
+    rid = Ridge(random_state=7,alpha=0.1)
+    model1 = lass.fit(x_train,y_train)
+    model2 = rid.fit(x_train,y_train)
+    y_pred1 = model1.predict(x_test)
+    y_pred2 = model2.predict(x_test)
+    score1 = model1.score(x_test,y_test)
+    score2 = model2.score(x_testy_test)
+    
+    
 
+c= create_stats(x_train, x_test, y_train, y_test)
+c
 
-# Write your code below
 
 

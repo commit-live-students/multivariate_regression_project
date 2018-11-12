@@ -5,7 +5,8 @@ from matplotlib.pyplot import yticks, xticks, subplots, set_cmap
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 import seaborn as sns
 import matplotlib
-matplotlib.use('agg')
+# matplotlib.use('Agg')
+plt.switch_backend('agg')
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 import pandas as pd
 
@@ -26,12 +27,13 @@ x_train = pd.concat([x_train,y_train],axis=1)
 #visualise_data(pd.concat([x_train,y_train],axis=1),'../images/data_image.png')
 
 def plot_corr(df,size=11):
-    
     numeric = x_train._get_numeric_data()
-    cor_numeric = numeric.corr()
+    train = pd.concat([numeric,pd.DataFrame(y_train)],1)
+    cor_numeric = train.corr()
     sns.heatmap(cor_numeric)
-    plt.show()
-c=plot_corr(df,size=11)
+    plt.set_cmap('YlOrRd')
 
+plot_corr(df,size=11)
+plot_corr(df,size=11)
 
 
