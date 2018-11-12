@@ -7,7 +7,7 @@ What would be the dependent variables here?
 
 Tip: In practice, we denote dependent variables with capital X and target variables with small y.
 Now split this to training and testing set
-## Write a function `split_data` that:
+## Write a function `split_dataset` that:
 -Takes dataframe as input and splits into x_train,x_test,y_train,y_test
 
 ### Parameters:
