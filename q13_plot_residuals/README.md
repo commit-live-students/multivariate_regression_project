@@ -1,7 +1,13 @@
-###Write function to plot residual values
 
-something like this
-I wont be elaborating on this as this is already used in previous asignments
-plot_residuals(y_actual,y_predicted,name)
-Remember few pointers though:
-if your residual scatter is random, your model is suitable.lookoiut for prabaola and such patterns 
+# Plotting residuals - Visualizing the residuals to validate the model
+
+## Let's write a function `plot_residuals()` 
+* That returns a scatter plot of y_test vs Residuals i.e., a residuals plot.
+
+### Parameters:
+
+| Parameter | dtype | argument type | default value | description |
+| --- | --- | --- | --- | --- | 
+| y_test |  | compulsory | | Target Variable |
+| y_pred |  | compulsary | | Predicted value |
+
