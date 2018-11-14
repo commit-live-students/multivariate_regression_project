@@ -15,7 +15,8 @@ Details of observations there can be found in that assignment.
 
 | Parameter | dtype | argument type | default value | description |
 | --- | --- | --- | --- | --- | 
-| df | DataFrame | compulsory |  | Input DataFrame |
+| X |  | compulsory |  | Independent variable |
+| y |  | compulsory |  | Dependent variable   |
 | k| integer | compulsory | 50 | number as int for number of best features falling under k-th percentile |
 
 
