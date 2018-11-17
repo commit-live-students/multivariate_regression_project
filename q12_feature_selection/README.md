@@ -4,9 +4,7 @@ Please note that both sub-exercises in this assignment are already completed by 
 I have included them to show you how to analyse the output for your benefits.
 
 
-## Write a function `pick_features` that:
-- plot  correlation between all the attributes(dependant and independant). A function call to q01_plot_corr will do
-Details of observations there can be found in that assignment.
+## Write a function `feature_selection` that:
 - Select best features with implementation of k percentile method. A function call to q02_best_k_features will do.
 - return the features corresponding to the given best selected features
 
