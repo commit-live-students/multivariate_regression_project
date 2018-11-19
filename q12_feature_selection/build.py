@@ -1,5 +1,4 @@
 # %load q12_feature_selection/build.py
-import matplotlib.pyplot as plt
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -12,19 +11,14 @@ from greyatomlib.multivariate_regression_project.q12_feature_selection.build imp
 
 import pandas as pd
 df = load_data('data/student-mat.csv')
+X = df.drop(df.columns[len(df.columns)-1], axis=1)
+y = df.iloc[:,-1]
 x_train, x_test, y_train, y_test =  split_dataset(df)
-x_train,x_test = label_encode(x_train,x_test)
+X,_ = label_encode(X,x_train)
 
-def pick_features(x_train, y_train, k=50):
-    df_train = pd.concat([x_train,y_train], axis=1)
-    corr = df_train.corr()
-    plot_corr(df_train)
-    plt.show()
-    n_large_corr = list(corr.loc[:,'G3'].sort_values(axis=0, ascending=False).index)[1:]
-    k_best_features = percentile_k_features(x_train, y_train, k)
+def pick_features(X, y, k=50):
+    k_best_features = percentile_k_features(X, y, k)
     return k_best_features
-
-
 
 
 
