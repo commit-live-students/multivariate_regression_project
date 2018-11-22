@@ -14,8 +14,8 @@ x_train,x_test = label_encode(x_train,x_test)
 def describe_df(data):
     return data.describe(),x_train.apply(pd.value_counts),
 
-df.describe()
-df.apply(pd.value_counts)
+
+
 
 
 
