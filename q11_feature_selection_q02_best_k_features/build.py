@@ -1,3 +1,4 @@
+# %load q11_feature_selection_q02_best_k_features/build.py
 # Default imports
 from sklearn.feature_selection import SelectPercentile
 from sklearn.feature_selection import f_regression
@@ -20,7 +21,26 @@ x_train,x_test = label_encode(x_train,x_test)
 
 np.random.seed(9)
 # Write your code below
-    
+def percentile_k_features(x_train,y_train,k=50):
+    kbest = SelectPercentile(f_regression,k)
+    kbestf = kbest.fit(x_train,y_train)
+    ans = []
+    c = list(x_train.columns)
+    scores = list(kbestf.scores_)
+    temp = scores
+    d = {}
+    for i in range(0,len(c)):
+        d[c[i]] = scores[i]
+    temp.sort(reverse=True)
+    for i in range(0,16):
+        for val in d.keys():
+            if d[val] == temp[i]:
+                ans.append(val)
+    return ans
+percentile_k_features(x_train,y_train,k=50)
+
+
+
 
 
 

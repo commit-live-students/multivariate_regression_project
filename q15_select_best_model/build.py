@@ -1,3 +1,4 @@
+# %load q15_select_best_model/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -21,3 +22,8 @@ x_train,x_test = label_encode(x_train,x_test)
 
 
 # Write your code below
+def complete_build(x_train, x_test, y_train, y_test):
+    stats = pd.concat([create_stats(x_train,x_test,y_train,y_test),create_stats(x_train, x_test, y_train, y_test)],axis=0)
+    return stats
+
+
