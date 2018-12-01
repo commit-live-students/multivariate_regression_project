@@ -21,7 +21,7 @@ x_train,x_test = label_encode(x_train,x_test)
 
 # Write your code below
 def ridge(x_train, x_test, y_train, y_test,alpha=0.1):
-    model = Ridge(alpha=alpha)
+    model = Ridge(alpha=alpha,normalize=True)
     model.fit(x_train,y_train)
     val = cross_validation_regressor(model,x_train,y_train)
     y_pred, mse, mae, r2 = regression_predictor(model,x_test,y_test)
@@ -33,6 +33,7 @@ def ridge(x_train, x_test, y_train, y_test,alpha=0.1):
     return model, y_pred, stats
 
     
+
 
 
 
