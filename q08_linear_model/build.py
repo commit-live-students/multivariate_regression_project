@@ -1,3 +1,4 @@
+# %load q08_linear_model/build.py
 import pandas as pd
 import numpy as np
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
@@ -7,7 +8,6 @@ from greyatomlib.multivariate_regression_project.q05_linear_regression_model.bui
 from greyatomlib.multivariate_regression_project.q06_cross_validation.build import cross_validation_regressor
 from greyatomlib.multivariate_regression_project.q07_regression_pred.build import regression_predictor
 
-
 df = load_data('data/student-mat.csv')
 x_train, x_test, y_train, y_test =  split_dataset(df)
 x_train,x_test = label_encode(x_train,x_test)
@@ -16,5 +16,21 @@ val = cross_validation_regressor(model,x_train,y_train)
 y_pred, mse, mae, r2 = regression_predictor(model, x_test, y_test)
 
 # Write your code below
+
+def linear_model(x_train, x_test, y_train, y_test):
+
+    G = linear_regression(x_train, y_train)
+    y_pred, rmse, mae, r2 = regression_predictor(G, x_test, y_test)
     
+    val = cross_validation_regressor(model, x_train, y_train)
+    stats = pd.DataFrame([(val,mae,mse,r2)], columns = ['cross_val','mae','rmse','r2'])
     
+    # print (G, y_pred, stats)
+    return G, y_pred, stats
+
+# linear_model(x_train, x_test, y_train, y_test)
+
+    
+
+
+
