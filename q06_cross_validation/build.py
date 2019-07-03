@@ -1,3 +1,4 @@
+# %load q06_cross_validation/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
 
@@ -19,3 +20,15 @@ model =linear_regression(x_train,y_train)
 
 # Write your code below
     
+def cross_validation_regressor(Model,X,y):
+    score = cross_val_score(Model,X,y)
+    score=(np.round(score,decimals=3))
+    
+    return score.mean()
+score = cross_validation_regressor(model,x_train,y_train)
+print(score)
+print(type(score))
+from inspect import getargspec
+args = getargspec(cross_validation_regressor)
+len(args[0])
+
