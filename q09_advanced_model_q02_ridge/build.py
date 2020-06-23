@@ -1,3 +1,4 @@
+# %load q09_advanced_model_q02_ridge/build.py
 from greyatomlib.multivariate_regression_project.q01_load_data.build import load_data
 
 from greyatomlib.multivariate_regression_project.q02_data_split.build import split_dataset
@@ -18,8 +19,17 @@ x_train, x_test, y_train, y_test =  split_dataset(df)
 
 x_train,x_test = label_encode(x_train,x_test)
 
-# Write your code below
-   
-
+def ridge(x_train, x_test, y_train, y_test, alpha=0.1):
     
+    ridge_model = Ridge(alpha)
+    G = ridge_model.fit(x_train, y_train)
+    val = cross_validation_regressor(ridge_model,x_train,y_train)
+    y_pred, mse, mae, r2 = regression_predictor(ridge_model, x_test, y_test)
+    stat_table = pd.DataFrame([[val, mae, r2, mse]], columns=['cross_validation', 'mae', 'r2', 'rmse'])
+    
+    return G, y_pred, stat_table
+    
+
+
+
 

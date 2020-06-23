@@ -1,4 +1,14 @@
 import pandas as pd
+import random
 
-# Write your code below
+random.seed(7)
+
+def load_data(path):
+    df = pd.read_table(path, sep=';')
     
+    return df
+    
+
+
+
+
